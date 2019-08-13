@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Twitter Web Client に via(source) 表示
-// @version     1.1
+// @version     1.2
 // @description Twitter Web Client にもツイートの via (source) を表示するやつ
 // @author      SimplyRin
 // @homepage    https://github.com/SimplyRin/Tampermonkey/
@@ -43,7 +43,7 @@ function check() {
             if (child != null && child.children[0] != null) {
                 child = child.children[0];
                 $.ajax({
-                    url: 'https://api.simplyrin.net/Twitter/source.php?id=' + href.split("/")[5]
+                    url: 'https://api.v2.simplyrin.net/Twitter/SourceViewer/source.php?id=' + href.split("/")[5]
                 }).done(function (data) {
                     if (data !== "") {
                         child.innerHTML += "・ " + data;
